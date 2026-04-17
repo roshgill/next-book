@@ -1,0 +1,21 @@
+# Virtual environment
+.venv/
+
+# macOS
+.DS_Store
+
+# Data — raw and processed files are not versioned
+data/raw/
+data/processed/
+data/outputs/
+
+# Model artifacts
+models/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
