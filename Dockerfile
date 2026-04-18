@@ -29,5 +29,8 @@ COPY data/processed/catalog_clean.parquet ./data/processed/
 COPY models/ ./models/
 COPY --from=web-builder /build/out ./web/out
 
+COPY start.sh .
+RUN chmod +x start.sh
+
 EXPOSE 8000
-CMD ["/bin/sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port $PORT"]
+CMD ["./start.sh"]
