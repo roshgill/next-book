@@ -12,6 +12,7 @@ Run locally:
 from __future__ import annotations
 
 import logging
+import os
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Optional
@@ -51,9 +52,19 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="next-book API", version="1.0.0", lifespan=lifespan)
 
+# Build the allowed-origins list from the environment so that the Railway
+# public domain is always permitted alongside localhost for local dev.
+# RAILWAY_PUBLIC_DOMAIN is injected automatically by Railway (e.g.
+# "next-book-production-xxxx.up.railway.app") — no trailing slash, no scheme.
+_railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN", "")
+_allowed_origins: list[str] = ["http://localhost:3000"]
+if _railway_domain:
+    _allowed_origins.append(f"https://{_railway_domain}")
+    _allowed_origins.append(f"http://{_railway_domain}")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=_allowed_origins,
     allow_methods=["GET"],
     allow_headers=["*"],
 )
