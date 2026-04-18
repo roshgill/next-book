@@ -30,4 +30,4 @@ COPY models/ ./models/
 COPY --from=web-builder /build/out ./web/out
 
 EXPOSE 8000
-CMD ["/bin/sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port $PORT"]
+CMD ["/bin/sh", "-c", "uvicorn api.main:app --host 0.0.0.0 --port ${PORT}"]
