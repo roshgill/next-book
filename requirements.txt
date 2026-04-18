@@ -7,13 +7,7 @@ python-multipart>=0.0.9
 pandas==2.2.3
 pyarrow==19.0.1
 
-# Classical ML
+# Classical ML + MLP inference (no torch here — installed separately as CPU-only)
 scikit-learn==1.6.1
 numpy==2.2.4
-
-# Deep learning
-torch==2.6.0
-sentence-transformers==3.4.1
-
-# Visualization
-matplotlib==3.10.8
+scipy>=1.6.0

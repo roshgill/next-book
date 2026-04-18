@@ -1,0 +1,11 @@
+# Dev-only dependencies — NOT installed in Docker
+# Run locally: pip install -r requirements-dev.txt
+
+# Feature building (precomputes embeddings.npy — runs locally, not in prod)
+sentence-transformers==3.4.1
+
+# Visualization (experiment charts, report figures)
+matplotlib==3.10.8
+
+# Full torch with GPU support for local training
+torch==2.6.0

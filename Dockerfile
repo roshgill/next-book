@@ -16,8 +16,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt .
-# Install CPU-only torch first (avoids bundling CUDA, saves ~2GB)
-RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+# CPU-only torch first — must come before requirements.txt so pip doesn't
+# later pull in the CUDA build as a dependency. Saves ~2.5GB vs default.
+RUN pip install --no-cache-dir torch==2.6.0+cpu --index-url https://download.pytorch.org/whl/cpu
+# sentence-transformers is NOT installed here — embeddings are precomputed
+# in models/embeddings.npy and loaded at runtime. No inference-time encoding.
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY scripts/ ./scripts/
