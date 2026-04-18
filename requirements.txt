@@ -9,3 +9,6 @@ numpy==2.2.4
 # Deep learning
 torch==2.6.0
 sentence-transformers==3.4.1
+
+# Visualization
+matplotlib==3.10.8

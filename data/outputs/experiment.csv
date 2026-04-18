@@ -1,0 +1,10 @@
+model,length_bucket,precision_at_10,n_queries
+classical,short,0.197,133
+classical,medium,0.2174,236
+classical,long,0.1748,131
+deep,short,0.3609,133
+deep,medium,0.3835,236
+deep,long,0.316,131
+naive,short,0.0902,133
+naive,medium,0.0835,236
+naive,long,0.0641,131
