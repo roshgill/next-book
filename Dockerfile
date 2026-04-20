@@ -29,8 +29,7 @@ COPY data/processed/catalog_clean.parquet ./data/processed/
 COPY models/ ./models/
 COPY --from=web-builder /build/out ./web/out
 
-COPY start.sh .
-RUN chmod +x start.sh
+COPY run.py .
 
 EXPOSE 8000
-CMD ["./start.sh"]
+CMD ["python", "run.py"]
