@@ -27,3 +27,6 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Claude Code
+.claude/
