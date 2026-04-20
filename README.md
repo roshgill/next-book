@@ -2,7 +2,7 @@
 
 A content-based book recommendation system. Give it a book you loved — it returns 10 similar books with model-generated reasoning, using a catalog of ~5,800 books.
 
-**Live app**: [next-book on Railway]([https://next-book-production.up.railway.app](https://next-book-production-06a3.up.railway.app/)) <!-- update with actual URL -->
+**Live app**: [next-book on Railway](https://next-book-production-06a3.up.railway.app/) <!-- update with actual URL -->
 
 ---
 
